@@ -1,81 +1,71 @@
-/*
- * 
- * @author Rachel_FASP
- * 
- * 
- */
+import java.util.*;
+import java.lang.Math;
 
-import java.util.Scanner;
+public class menumakanan {
+    private static Scanner input = new Scanner(System.in);
 
-public class Menumakanan {
-	private static Scanner sc = new Scanner(System.in);
-
-	public static void main(String[] args) {
-		String[] namamakanan = new String[10];
-		int[] banyakpesan = new int[10];
-		int[] totalbayar = new int[10];
-		int h_biasa = 10000, h_seafood = 15000, h_istimewa = 20000;
-		int menu, i = 1, j = 0;
-				
-		do {
-			System.out.println("Daftar Menu :");
-			System.out.println("1. Nasi Goreng Biasa - "+h_biasa);
-			System.out.println("2. Nasi Goreng Seafood - "+h_seafood);
-			System.out.println("3. Nasi Istimewa - "+h_istimewa);
-			System.out.println("0. Keluar / Selesai");
-			System.out.print("- Pilih menu : ");
-			menu = sc.nextInt();
-			
-			switch (menu) {
-			case 0:
-				System.out.println("\n*** Keluar ***");
-				break;
-				
-			case 1:
-				namamakanan[i] = "Nasi Goreng Biasa";
-				System.out.print("- Jumlah = ");
-				banyakpesan[i] = sc.nextInt();
-				totalbayar[i] = h_biasa * banyakpesan[i];
-				System.out.println();
-				break;
-			
-			case 2:
-				namamakanan[i] = "Nasi Goreng Seafood";
-				System.out.print("- Jumlah = ");
-				banyakpesan[i] = sc.nextInt();
-				totalbayar[i] = h_seafood * banyakpesan[i];
-				System.out.println();
-				break;
-				
-			case 3:
-				namamakanan[i] = "Nasi Goreng Istimewa";
-				System.out.print("- Jumlah = ");
-				banyakpesan[i] = sc.nextInt();
-				totalbayar[i] = h_istimewa * banyakpesan[i];
-				System.out.println();
-				
-			default:
-				menu = 0;
-				System.out.println("\n**** Menu tidak ada, keluar ****");
-				System.out.println();
-				break;
-			}
-			
-			i++;
-			
-		} while(menu > 0);
-		
-		
-		for(j = 1; j <= i-2; j++)
-		{
-			System.out.println("---------------- Rincian ----------------");
-			System.out.println("- Makanan \t: "+ namamakanan[j]);
-			System.out.println("- Jumlah \t: "+banyakpesan[j]);
-			System.out.println("- Bayar \t: "+totalbayar[j]);
-			System.out.println("-----------------------------------------\n");
-		}
-		
-
-	}
-
+    public static void main(String[] args) {
+        String[] namamakanan = new String[10];
+        int menu;
+        int[] banyak = new int[10];
+        int[] harga = new int[10];
+        int i;
+        int j;
+        int totalharga;
+        
+        totalharga = 0;
+        i = 0;
+        j = 0;
+        System.out.println("*  Daftar Menu Makanan  *");
+        System.out.println("=========================================");
+        System.out.println("No Nama                          Harga");
+        System.out.println("1. Nasi Goreng Biasa             Rp 10000,00");
+        System.out.println("2. Nasi Goreng Seafood           Rp 15000,00");
+        System.out.println("3. Nasi Goreng Istimewa          Rp 20000,00");
+        System.out.println("0. Keluar");
+        do {
+            i = i + 1;
+            System.out.println();
+            System.out.println("=======================");
+            System.out.print("Masukkan Pilihan Menu      = ");
+            menu = input.nextInt();
+            if (menu == 1) {
+                namamakanan[i] = "NASI GORENG BIASA \t";
+                System.out.print("Masukkan Banyaknya Pesanan = ");
+                banyak[i] = input.nextInt();
+                harga[i] = 10000;
+                totalharga = totalharga + harga[i] * banyak[i];
+                System.out.println(namamakanan[i]+"\t"+banyak[i]);
+            } else {
+                if (menu == 2) {
+                    namamakanan[i] = "NASI GORENG SEAFOOD ";
+                    System.out.print("Masukkan Banyaknya Pesanan = ");
+                    banyak[i] = input.nextInt();
+                    harga[i] = 15000;
+                    totalharga = totalharga + harga[i] * banyak[i];
+                    System.out.println(namamakanan[i]+"\t"+banyaki]);
+                } else {
+                    if (menu == 3) {
+                        namamakanan[i] = "NASI GORENG ISTIMEWA ";
+                        System.out.print("Masukkan Banyaknya Pesanan = ");
+                        banyak[i] = input.nextInt();
+                        harga[i] = 20000;
+                        totalharga = totalharga + harga[i] * banyak[i];
+                        System.out.println(namamakanan[i]+"\t"+banyak[i]);
+                    }
+                }
+            }
+        } while (menu > 0);
+        System.out.println();
+        for (j = 1; j <= i - 1; j++) {
+            System.out.println();
+            System.out.print(namamakanan[j]+"\t");
+            System.out.print(banyak[j]+"\t");
+            System.out.print(harga[j] * banyak[j]);
+        }
+        System.out.println();
+        System.out.println("=======================");
+        System.out.print("Total harga = ");
+        System.out.println(totalharga);
+    }
 }
