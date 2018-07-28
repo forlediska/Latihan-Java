@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class HitungAngka {
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		int bil_loop = 0, bil_max = 0, bil_min = 999999999, total = 0, jml_loop;
+		float rata_rata = 0;
+		
+		System.out.println("------ UAS R2 2018 ------");
+		System.out.println("- Masukkan jumlah bilangan yang akan dihitung ");
+		System.out.print("-- Jumlah = "); jml_loop = sc.nextInt();
+		
+		System.out.println();
+		
+		int[] bil_input = new int[jml_loop];
+		
+		while(bil_loop < jml_loop)
+		{
+			System.out.print("* Masukkan Bilangan ke-"+ (bil_loop+1) +" = "); bil_input[bil_loop] = sc.nextInt();
+			
+			total = total+bil_input[bil_loop];
+			rata_rata = total/bil_input.length;
+			
+			if(bil_input[bil_loop] > bil_max )
+			{
+				bil_max = bil_input[bil_loop];
+			}
+			
+			if(bil_input[bil_loop] < bil_min)
+			{
+				bil_min = bil_input[bil_loop];
+			}
+			
+			bil_loop++;
+		}
+		
+		System.out.println();
+		System.out.println("-- Total \t = "+total);
+		System.out.println("-- Rata-rata \t = "+rata_rata);
+		System.out.println("-- Maksimal \t = "+bil_max);
+		System.out.println("-- Minimal \t = "+bil_min);
+		
+
+	}
+
+}
